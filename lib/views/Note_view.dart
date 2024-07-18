@@ -9,7 +9,8 @@ class NoteWiew extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-       body: BodyNotesView()
+       body: BodyNotesView(),
+       floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add),),
       ),
     );
   }
