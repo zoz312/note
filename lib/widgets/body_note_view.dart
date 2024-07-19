@@ -13,7 +13,7 @@ class BodyNotesView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8),
       child: Column(
-        children: [CustoumAppBar(),
+        children: [CustoumAppBar(icon: Icon(Icons.search),text: "Notes",),
         SizedBox(height: 10,),
       listviewb()
          ],
