@@ -20,7 +20,7 @@ fontFamily: 'Poppins'),
         'edit': (context) => EditNote(),
        
       },
-      initialRoute: 'note',
+      initialRoute: 'note'
 
     );
   }
