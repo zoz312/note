@@ -4,7 +4,9 @@ class CustoumAppBar extends StatelessWidget {
   const CustoumAppBar({super.key, required this.icon, required this.text});
   final Icon icon;
   final String text;
+
   @override
+
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       Text(
@@ -14,11 +16,16 @@ class CustoumAppBar extends StatelessWidget {
       Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Colors.white.withOpacity(.05),
+          color: Colors.white.withOpacity(.05) ,
         ),
         width: 47,
         height: 47,
-        child: IconButton(onPressed: () {}, icon: icon),
+        child: IconButton(
+            onPressed: () {
+              
+             
+            },
+            icon: icon),
       )
     ]);
   }
