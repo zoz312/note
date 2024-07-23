@@ -4,6 +4,7 @@ import 'package:note/cubit/cubit/add_note_cubit.dart';
 import 'package:note/models/notemodel.dart';
 import 'package:note/widgets/customTextfiled.dart';
 import 'package:note/widgets/custombutton.dart';
+import 'package:intl/intl.dart';
 
 class newformwedgit extends StatefulWidget {
   const newformwedgit({
@@ -18,6 +19,11 @@ class _newformwedgitState extends State<newformwedgit> {
   final GlobalKey<FormState> FormKey = GlobalKey();
   AutovalidateMode mode = AutovalidateMode.disabled;
   String? title, subtitle;
+  String date = DateTime.now().hour.toString();
+    String date1 = DateTime.now().minute.toString();
+  String date2 = DateTime.now().day.toString();
+  String date3 = DateTime.now().month.toString();
+  String date4 = DateTime.now().year.toString();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -46,15 +52,15 @@ class _newformwedgitState extends State<newformwedgit> {
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return custombutton(
-                loading: state is AddNoteloading? true : false,
+                loading: state is AddNoteloading ? true : false,
                 onPressed: () {
                   if (FormKey.currentState!.validate()) {
                     FormKey.currentState!.save();
                     var notemodel = NoteModel(
                         title: title!,
                         Subtitle: subtitle!,
-                        date: DateTime.now().toString(),
-                        color: Colors.amber.value);
+                        date: '${date4}' +'-' +  '${date3}'+'-' + '${date2}' + '   ' + '${date}' + ':'+'${date1}',
+                     color: Colors.amber.value);
                     BlocProvider.of<AddNoteCubit>(context).addnte(notemodel);
                   } else {
                     mode = AutovalidateMode.always;

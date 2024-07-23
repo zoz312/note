@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note/cubit/notescuibt/notes_cubit.dart';
+import 'package:note/models/notemodel.dart';
 
 class ItemNote extends StatelessWidget {
-  const ItemNote({super.key});
-
+  const ItemNote({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -13,7 +16,7 @@ class ItemNote extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Color(0xffFFCC80),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -23,14 +26,16 @@ class ItemNote extends StatelessWidget {
               title: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "hozifa khaild",
+                  note.title,
                   style: TextStyle(color: Colors.black, fontSize: 30),
                 ),
               ),
               trailing: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      note.delete();
+                    },
                     icon: Icon(
                       CupertinoIcons.delete_solid,
                       color: Colors.black,
@@ -40,7 +45,7 @@ class ItemNote extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "cccccc fthyryrdagczcdtc vdo",
+                  note.Subtitle,
                   style: TextStyle(
                       color: Colors.black.withOpacity(.5), fontSize: 20),
                 ),
@@ -52,7 +57,7 @@ class ItemNote extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                '207/33/33 may',
+                note.date,
                 style: TextStyle(color: Colors.black.withOpacity(.4)),
               ),
             )
