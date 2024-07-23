@@ -11,10 +11,8 @@ class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitial());
   List<NoteModel>? notes;
   fatchallnode() {
-  
-
     var notebox = Hive.box<NoteModel>(kNotebox);
-  notes = notebox.values.toList();
-   
+    notes = notebox.values.toList();
+    emit(NotesSuccess());
   }
 }

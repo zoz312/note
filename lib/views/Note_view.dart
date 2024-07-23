@@ -11,23 +11,20 @@ class NoteWiew extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocProvider(
-        create: (context) => NotesCubit(),
-        child: Scaffold(
-          body: BodyNotesView(),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              showModalBottomSheet(
-                  isScrollControlled: true,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16)),
-                  context: context,
-                  builder: (context) {
-                    return ShowButtonModelsheet();
-                  });
-            },
-            child: Icon(Icons.add),
-          ),
+      child: Scaffold(
+        body: BodyNotesView(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+                isScrollControlled: true,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16)),
+                context: context,
+                builder: (context) {
+                  return ShowButtonModelsheet();
+                });
+          },
+          child: Icon(Icons.add),
         ),
       ),
     );

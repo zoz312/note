@@ -35,6 +35,7 @@ class ItemNote extends StatelessWidget {
                 child: IconButton(
                     onPressed: () {
                       note.delete();
+                      BlocProvider.of<NotesCubit>(context).fatchallnode();
                     },
                     icon: Icon(
                       CupertinoIcons.delete_solid,

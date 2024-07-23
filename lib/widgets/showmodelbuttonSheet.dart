@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:note/constans.dart';
 import 'package:note/cubit/cubit/add_note_cubit.dart';
+import 'package:note/cubit/notescuibt/notes_cubit.dart';
 import 'package:note/widgets/customTextfiled.dart';
 import 'package:note/widgets/custombutton.dart';
 import 'package:note/widgets/formbuttonsheet.dart';
@@ -17,9 +18,9 @@ class ShowButtonModelsheet extends StatelessWidget {
       child: BlocConsumer<AddNoteCubit, AddNoteState>(
         listener: (context, state) {
           if (state is AddNotefailire) {
-            print("failed${state.errormassig}");
+    
           }
-          if (state is AddNotesucsses) {
+          if (state is AddNotesucsses) {       BlocProvider.of<NotesCubit>(context).fatchallnode();
             Navigator.pop(context);
           }
         },
