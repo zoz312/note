@@ -32,7 +32,7 @@ class NoteApp extends StatelessWidget {
           theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
           routes: {
             'note': (context) => NoteWiew(),
-            'edit': (context) => EditNote(),
+           // 'edit': (context) => EditNote(),
           },
           initialRoute: 'note'),
     );

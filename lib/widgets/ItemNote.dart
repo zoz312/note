@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note/cubit/notescuibt/notes_cubit.dart';
 import 'package:note/models/notemodel.dart';
+import 'package:note/views/edit_note.dart';
 
 class ItemNote extends StatelessWidget {
   const ItemNote({super.key, required this.note});
@@ -11,7 +12,9 @@ class ItemNote extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, 'edit');
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return EditNote(note: note,);
+        }));
       },
       child: Container(
         padding: EdgeInsets.all(10),

@@ -5,6 +5,8 @@ import 'package:note/models/notemodel.dart';
 import 'package:note/widgets/customTextfiled.dart';
 import 'package:note/widgets/custombutton.dart';
 import 'package:intl/intl.dart';
+import 'package:note/widgets/itemColor.dart';
+import 'package:note/widgets/listvewcolor.dart';
 
 class newformwedgit extends StatefulWidget {
   const newformwedgit({
@@ -47,8 +49,9 @@ class _newformwedgitState extends State<newformwedgit> {
             onSaved: (p0) {
               subtitle = p0;
             },
-          ),
-          const SizedBox(height: 150),
+          ),const SizedBox(height: 40),
+          listviewcolor(),
+          const SizedBox(height: 40),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return custombutton(

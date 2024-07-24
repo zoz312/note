@@ -1,29 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:note/models/notemodel.dart';
 import 'package:note/widgets/customTextfiled.dart';
+import 'package:note/widgets/edit_note_body.dart';
 
 import '../widgets/customappbar.dart';
 
 class EditNote extends StatelessWidget {
-  const EditNote({super.key});
-
+  const EditNote({super.key, required this.note});
+final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: 
-        Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            children:[
-           CustoumAppBar(icon: Icon(Icons.done),text: "Edit Notes ",),
-            SizedBox(height: 30),
-           customTextfiled(hintText: "Title"),
-       SizedBox(height: 20,),
-       customTextfiled(hintText: "Content",maxLines: 5,),
-      
-              ]  ),
-        ),
+        editNoteBody(note: note,),
       ),
     );
   }
 }
+

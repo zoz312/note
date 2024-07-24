@@ -27,6 +27,9 @@ class _BodyNotesViewState extends State<BodyNotesView> {
       child: Column(
         children: [
           CustoumAppBar(
+            onPressed: (){
+              
+            },
             icon: Icon(Icons.search),
             text: "Notes",
           ),
